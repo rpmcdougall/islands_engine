@@ -11,4 +11,5 @@ defmodule IslandsEngine.Coordinate do
 
   def new(_row, _col), do: {:error, :invalid_coordinate}
 
+
 end
