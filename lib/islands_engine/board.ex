@@ -15,8 +15,7 @@ defmodule IslandsEngine.Board do
     end)
   end
 
-  def all_islands_positioned?(board), do:
-    Enum.all?(Island.types, &(Map.has_key?(board, &1)))
+  def all_islands_positioned?(board), do: Enum.all?(Island.types(), &Map.has_key?(board, &1))
 
   def guess(board, %Coordinate{} = coordinate) do
     board
@@ -60,6 +59,6 @@ defmodule IslandsEngine.Board do
     end
   end
 
-  defp all_forested?(board), do:
-    Enum.all?(board, fn {_key, island} -> Island.forested?(island) end)
+  defp all_forested?(board),
+    do: Enum.all?(board, fn {_key, island} -> Island.forested?(island) end)
 end
